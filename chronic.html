@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>PIN Gate</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+  }
+  #pinInput {
+    font-size: 32px;
+    text-align: center;
+    width: 180px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  .keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    grid-gap: 10px;
+    justify-content: center;
+  }
+  button {
+    font-size: 24px;
+    padding: 15px;
+    cursor: pointer;
+  }
+  .clear {
+    background-color: #f44336;
+    color: white;
+  }
+  .ok {
+    background-color: #4CAF50;
+    color: white;
+  }
+  #error {
+    color: red;
+    margin-top: 15px;
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<h2>Enter PIN</h2>
+<input id="pinInput" type="password" maxlength="4" readonly>
+
+<div class="keypad">
+  <button onclick="pressNum('1')">1</button>
+  <button onclick="pressNum('2')">2</button>
+  <button onclick="pressNum('3')">3</button>
+  <button onclick="pressNum('4')">4</button>
+  <button onclick="pressNum('5')">5</button>
+  <button onclick="pressNum('6')">6</button>
+  <button onclick="pressNum('7')">7</button>
+  <button onclick="pressNum('8')">8</button>
+  <button onclick="pressNum('9')">9</button>
+
+  <button class="clear" onclick="clearPIN()">Clear</button>
+  <button onclick="pressNum('0')">0</button>
+  <button class="ok" onclick="submitPIN()">OK</button>
+</div>
+
+<p id="error">Incorrect PIN</p>
+
+<script>
+  var correct = "9989";  // or module-specific PIN
+  var redirect = "https://sites.google.com/view/emergency-profile-master/chronic-conditions";
+</script>
+<script src="script.js"></script>
+
+</body>
+</html>
