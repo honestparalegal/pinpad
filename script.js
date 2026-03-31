@@ -19,8 +19,6 @@ function clearPIN() {
 function submitPIN() {
   vibrate(70);
   var entered = document.getElementById("pinInput").value;
-  var correct = "9989";
-  var redirect = "https://sites.google.com/view/emergency-profile-master/hospital-summary";
 
   if (entered === correct) {
     window.location.href = redirect;
