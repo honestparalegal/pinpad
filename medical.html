@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>PIN Gate</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+  }
+  #pinInput {
+    font-size: 32px;
+    text-align: center;
+    width: 180px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  .keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    grid-gap: 10px;
+    justify-content: center;
+  }
+  button {
+    font-size: 24px;
+    padding: 15px;
+    cursor: pointer;
+  }
+  .clear {
+    background-color: #f44336;
+    color: white;
+  }
+  .ok {
+    background-color: #4CAF50;
+    color: white;
+  }
+  #error {
+    color: red;
+    margin-top: 15px;
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<h2>Enter PIN</h2>
+<input id="pinInput" type="password" maxlength="4" readonly>
+
+<div class="keypad">
+  <button onclick="pressNum('1')">1</button>
+  <button onclick="pressNum('2')">2</button>
+  <button onclick="pressNum('3')">3</button>
+  <button onclick="pressNum('4')">4</button>
+  <button onclick="pressNum('5')">5</button>
+  <button onclick="pressNum('6')">6</button>
+  <button onclick="pressNum('7')">7</button>
+  <button onclick="pressNum('8')">8</button>
+  <button onclick="pressNum('9')">9</button>
+
+  <button class="clear" onclick="clearPIN()">Clear</button>
+  <button onclick="pressNum('0')">0</button>
+  <button class="ok" onclick="submitPIN()">OK</button>
+</div>
+
+<p id="error">Incorrect PIN</p>
+
+<script>
+  function vibrate(ms) {
+    if (navigator.vibrate) navigator.vibrate(ms);
+  }
+
+  function pressNum(num) {
+    vibrate(30);
+    var input = document.getElementById("pinInput");
+    if (input.value.length < 4) {
+      input.value += num;
+    }
+  }
+
+  function clearPIN() {
+    vibrate(50);
+    document.getElementById("pinInput").value = "";
+    document.getElementById("error").style.display = "none";
+  }
+
+  function submitPIN() {
+    vibrate(70);
+    var entered = document.getElementById("pinInput").value;
+    var correct = "9998";
+    var redirect = "https://sites.google.com/view/emergency-profile-master/medical-info";
+
+    if (entered === correct) {
+      window.location.href = redirect;
+    } else {
+      document.getElementById("error").style.display = "block";
+      vibrate([100, 50, 100]);
+      clearPIN();
+    }
+  }
+</script>
+
+</body>
+</html>
