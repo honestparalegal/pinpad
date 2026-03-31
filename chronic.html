@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  .pad-container {
+    max-width: 400px;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .keypad-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  button {
+    font-size: 1.5rem;
+    padding: 20px;
+    width: 100%;
+  }
+</style>
 <meta charset="UTF-8">
 <title>PIN Gate</title>
 <style>
@@ -17,16 +38,18 @@
     margin-bottom: 20px;
   }
   .keypad {
-    display: grid;
-    grid-template-columns: repeat(3, 80px);
-    grid-gap: 10px;
-    justify-content: center;
-  }
-  button {
-    font-size: 24px;
-    padding: 15px;
-    cursor: pointer;
-  }
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  max-width: 400px;
+  width: 90%;
+  margin: 0 auto;
+}
+ button {
+  font-size: 1.5rem;
+  padding: 20px;
+  width: 100%;
+}
   .clear {
     background-color: #f44336;
     color: white;
